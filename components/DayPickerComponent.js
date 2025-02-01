@@ -5,7 +5,7 @@ import { DayPicker } from "react-day-picker"
 import "react-day-picker/dist/style.css"; // Import the default styling
 
 const DayPickerComponent = ({ onDateSelect }) => {
-    const [selected, setSelected] = useState(null);
+    const [selected, setSelected] = useState(new Date());
   
     const handleDayClick = (day) => {
       setSelected(day);
@@ -21,6 +21,7 @@ const DayPickerComponent = ({ onDateSelect }) => {
           mode="single"
           selected={selected}
           onSelect={handleDayClick}
+          disabled={[{ before: new Date() }]}
         />
         {selected && (
           <p>
