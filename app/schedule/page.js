@@ -50,7 +50,6 @@ const BookingWizard = () => {
 
   useEffect(() => {
     const fetchServices = async () => {
-    console.log("Fetching services...");
       try {
         const response = await fetch("https://localhost:44361/api/Service/getAll");
         if (!response.ok) {
@@ -81,7 +80,6 @@ const BookingWizard = () => {
       customerInfo,
       specialRequest
     };
-    console.log(bookingData);
 
     try {
       const response = await fetch("https://localhost:44361/api/Booking/createBooking", {
