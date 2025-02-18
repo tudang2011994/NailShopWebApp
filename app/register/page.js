@@ -17,7 +17,7 @@ function Register(){
         const registerData = {username,password,email};
 
         try{
-            const response = await fetch('https://localhost:44361/api/User/register',{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/User/register`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

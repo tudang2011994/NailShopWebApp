@@ -1,4 +1,4 @@
-import Image from 'next/image';
+"use client";
 import ScrollingLogos from './ScrollingLogos';
 
 export default function RoyaltyProgram() {
@@ -14,12 +14,27 @@ export default function RoyaltyProgram() {
         And more Coupons for Members
       </button>
       <ScrollingLogos />
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-12">
-        <div className="relative w-full h-96 rounded-lg overflow-hidden">
-          <Image src="/pedicure-chairs.jpg" alt="Pedicure Chairs" fill className="object-cover" />
+      
+      {/* New Description Above Images */}
+      <p className="text-2xl font-semibold mt-12">
+        Trying our <span className="text-gradient font-playfair">Bee You Pedicure Package</span> won’t let you down!  
+        Enjoy a relaxing massage that melts away stress and leaves you feeling refreshed.
+      </p>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+        <div className="flex justify-center items-center w-full rounded-lg overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739750492/Beeyou_package_vs2r0s.jpg"
+            alt="Bee You Package"
+            className="object-contain w-full h-auto max-h-[500px]"
+          />
         </div>
-        <div className="relative w-full h-96 rounded-lg overflow-hidden">
-          <Image src="/leg-treatment.jpg" alt="Leg Treatment" fill className="object-cover" />
+        <div className="flex justify-center items-center w-full rounded-lg overflow-hidden">
+          <img
+            src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739752665/bee_you_package_2_etyahj.jpg"
+            alt="Leg Treatment"
+            className="object-contain w-full h-auto max-h-[500px]"
+          />
         </div>
       </div>
     </div>

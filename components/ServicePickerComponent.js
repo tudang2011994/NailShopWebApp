@@ -18,7 +18,7 @@ function ServicePickerComponent() {
   useEffect(() => {
     const fenceData = async () => {
       try {
-        const serviceResponse = await fetch("https://localhost:44361/api/Service/getAll");
+        const serviceResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Service/getAll`);
         if (!serviceResponse.ok) {
           throw new Error("Failed to fetch Data");
         }
@@ -27,7 +27,7 @@ function ServicePickerComponent() {
         dispatch(getServices(resultServices));
         console.log("Fetched services:", resultServices);
 
-        const staffResponse = await fetch("https://localhost:44361/api/Staff/getAll");
+        const staffResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Staff/getAll`);
         if (!staffResponse.ok) {
           throw new Error("Failed to fetch Data");
         }

@@ -30,7 +30,21 @@ export default function RootLayout({ children }) {
           <div id="root">  
             {children}
           </div>
-        </ClientProvider>       
+        </ClientProvider>
+        <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.onscroll = function() {
+                  var navbar = document.querySelector('.navbar');
+                  if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                  } else {
+                    navbar.classList.remove('scrolled');
+                  }
+                }
+              `,
+            }}
+          />       
       </body>
     </html>
 

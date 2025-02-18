@@ -29,7 +29,7 @@ const BookingTimeComponent = () => {
                 console.log("API CALL on ",dayPicked);
                 const dayString = dayPicked.toLocaleTimeString();
                 console.log("dayString", dayString);
-                const response = await fetch(`https://localhost:44361/api/Booking/GetAllInRange?startDate=${dayString}&days=30`);
+                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Booking/GetAllInRange?startDate=${dayString}&days=30`);
 
                 if(!response.ok) {
                     throw new Error("Failed to Fetch Data")

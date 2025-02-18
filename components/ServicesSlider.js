@@ -1,5 +1,6 @@
-"use client"
+"use client";
 import { motion } from 'framer-motion';
+import useWindowSize from '../hooks/useWindowSize';
 
 const services = [
   { name: 'Manicure', image: '/images/manicure1.png' },
@@ -10,6 +11,13 @@ const services = [
 ];
 
 export default function ServicesSlider() {
+  const size = useWindowSize();
+
+  // Do not render the component if the screen width is less than 768px (mobile devices)
+  if (size.width < 768) {
+    return null;
+  }
+
   return (
     <div className='overflow-hidden bg-pink-100 py-8'>
       <motion.div

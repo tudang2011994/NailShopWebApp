@@ -51,7 +51,7 @@ const BookingWizard = () => {
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch("https://localhost:44361/api/Service/getAll");
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Service/getAll`);
         if (!response.ok) {
           throw new Error("Failed to fetch services");
         }
@@ -82,7 +82,7 @@ const BookingWizard = () => {
     };
 
     try {
-      const response = await fetch("https://localhost:44361/api/Booking/createBooking", {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Booking/createBooking`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -298,7 +298,7 @@ const BookingWizard = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Book Your Appointment</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Book Your Appointment Coming Soon</h2>
           <div className="flex justify-center items-center space-x-4">
             {[1, 2, 3].map((stepNumber) => (
               <div key={stepNumber} className="flex items-center">

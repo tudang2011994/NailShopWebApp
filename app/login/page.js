@@ -21,7 +21,7 @@ function Login(){
         const loginData = { username, password };
 
         try{
-            const response = await fetch('https://localhost:44361/api/User/authenticate',{
+            const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/User/authenticate`,{
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

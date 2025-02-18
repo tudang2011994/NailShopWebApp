@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk  } from "@reduxjs/toolkit";
 
 export const addBookingDetail = createAsyncThunk("addBookingDetail", async (bookingDetails,thunkAPI)=>{
     try{
-        const response = await fetch(`https://localhost:44361/api/Booking/addAllBookings`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Booking/addAllBookings`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
