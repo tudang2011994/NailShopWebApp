@@ -23,16 +23,16 @@ export default function ContactSection() {
           For all other general inquiries: <a href="mailto:beeyou1227@gmail.com" className="underline">beeyou1227@gmail.com</a>
         </p>
         <div className="flex justify-center space-x-4">
-          <a href="https://www.facebook.com/yourpage" target="_blank" rel="noopener noreferrer" className="text-blue-600">
+          {/* <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className="text-blue-600">
             <FontAwesomeIcon icon={faFacebook} size="2x" />
-          </a>
-          <a href="https://www.instagram.com/yourpage" target="_blank" rel="noopener noreferrer" className="text-pink-600">
+          </a> */}
+          <a href="https://www.instagram.com/beeyounailandspa/" target="_blank" rel="noopener noreferrer" className="text-pink-600">
             <FontAwesomeIcon icon={faInstagram} size="2x" />
           </a>
-          <a href="https://www.yelp.com/biz/yourpage" target="_blank" rel="noopener noreferrer" className="text-red-600">
+          <a href="https://www.yelp.com/biz/bee-you-nail-and-spa-el-cajon" target="_blank" rel="noopener noreferrer" className="text-red-600">
             <FontAwesomeIcon icon={faYelp} size="2x" />
           </a>
-          <a href="https://www.google.com/maps/place/yourpage" target="_blank" rel="noopener noreferrer" className="text-red-600">
+          <a href="https://maps.app.goo.gl/HriGcdmSQeNwFM2K9" target="_blank" rel="noopener noreferrer" className="text-red-600">
             <FontAwesomeIcon icon={faGoogle} size="2x" />
           </a>
         </div>
