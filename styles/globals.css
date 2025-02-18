@@ -15,7 +15,7 @@
 }
 
 body {
-  color: var(--foreground);
+  color: black;
   background-color: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   font-family: 'Roboto', sans-serif;
@@ -91,4 +91,9 @@ body {
 
 .font-inter {
   font-family: 'Inter', sans-serif;
+}
+
+/* Or for specific elements */
+.text-black {
+  color: black;
 }
