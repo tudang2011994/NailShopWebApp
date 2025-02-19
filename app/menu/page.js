@@ -14,7 +14,7 @@ const menuData = {
       { name: "** Additional Service **", description: " Add Gel Polish for a long-lasting, high-shine finish" },
     ],
   },
-  madicure: {
+  manicure: {
     image: "https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739741400/manicure_menu_atzt2t.jpg",
     items: [
       { name: "Classic manicure", description: "A quick refresh for your hands! This manicure includes a soothing hand soak, expert nail trimming and shaping, cuticle care, a relaxing lotion massage, a warm towel wrap, and a flawless polish finish." },
