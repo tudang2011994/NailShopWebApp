@@ -3,9 +3,9 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const deals = [
-  "15% off first booking",
+  "10% off first booking",
   "15% off new registered users",
-  "15% off invite your buddy",
+  "10% off invite your buddy",
   "15% off Happy Monday",
 ];
 
