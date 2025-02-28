@@ -18,7 +18,7 @@ export default function ContactSection() {
         <p className="text-sm mb-6">
           Monday – Saturday | 9 AM-7PM<br />Sunday | 10 AM-7PM
         </p>
-        <a href="#" className="text-sm font-semibold underline block mb-6">BOOK APPOINTMENT</a>
+        <a href="https://app.squareup.com/appointments/book/z3cutw95ioa0kc/LJWTNTQ6EXXFA/start" className="text-sm font-semibold underline block mb-6">BOOK APPOINTMENT</a>
         <p className="text-sm mb-6">
           For all other general inquiries: <a href="mailto:beeyou1227@gmail.com" className="underline">beeyou1227@gmail.com</a>
         </p>
