@@ -3,10 +3,10 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 const deals = [
-  "10% off first booking",
-  "15% off new registered users",
+  "10% off new registered users",
   "10% off invite your buddy",
-  "15% off Happy Monday",
+  "10% off Spring Special",
+  "EventExclusive offers, every season, all year!",
 ];
 
 export default function DealsCarousel() {

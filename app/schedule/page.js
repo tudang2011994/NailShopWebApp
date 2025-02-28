@@ -1,5 +1,4 @@
-"use client"
-
+"use client";
 import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { format } from "date-fns";
@@ -11,7 +10,7 @@ import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 const schema = z.object({
   fullName: z.string().min(1, "Full name is required"),
   phone: z.string().regex(/^\+?[1-9]\d{1,14}$/, "Invalid phone number"),
-  email: z.string().email("Invalid email").optional().or(z.literal(""))
+  email: z.string().email("Invalid email").optional().or(z.literal("")),
 });
 
 const generateTimeSlots = (start, end, interval) => {
@@ -43,20 +42,25 @@ const BookingWizard = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [specialRequest, setSpecialRequest] = useState("");
+  const [optIn, setOptIn] = useState(false);
 
   const { register, handleSubmit, formState: { errors }, getValues } = useForm({
-    resolver: zodResolver(schema)
+    resolver: zodResolver(schema),
   });
 
   useEffect(() => {
     const fetchServices = async () => {
       try {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Service/getAll`);
+        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Service`);
         if (!response.ok) {
           throw new Error("Failed to fetch services");
         }
         const data = await response.json();
-        setServices(data);
+        if (data.$values && Array.isArray(data.$values)) {
+          setServices(data.$values);
+        } else {
+          throw new Error("API response is not an array");
+        }
       } catch (error) {
         setError(error.message);
       } finally {
@@ -78,50 +82,56 @@ const BookingWizard = () => {
       date: format(selectedDate, "yyyy-MM-dd"),
       time: selectedTime,
       customerInfo,
-      specialRequest
+      specialRequest,
     };
 
     try {
       const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Booking/createBooking`, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json"
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify(bookingData)
+        body: JSON.stringify(bookingData),
       });
 
       if (!response.ok) {
         throw new Error("Failed to create booking");
       }
 
-      // Handle successful booking (e.g., show a success message or redirect)
-      alert("Booking confirmed!");
+      alert("Booking confirmed! Our team will check schedule and contact you shortly.");
+      window.location.href = "/";
     } catch (error) {
-      // Handle error (e.g., show an error message)
       alert(error.message);
     }
   };
 
   const renderServiceSelection = () => (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      {services.map(service => (
+      {services.map((service) => (
         <div
           key={service.id}
-          className={`p-4 border rounded-lg cursor-pointer transition-all ${selectedService?.id === service.id ? "border-pink-500 bg-pink-50" : "border-gray-200 hover:border-pink-300"}`}
+          className={`p-4 border rounded-lg cursor-pointer transition-all ${
+            selectedService?.id === service.id
+              ? "border-pink-500 bg-pink-50"
+              : "border-gray-200 hover:border-pink-300"
+          }`}
           onClick={() => handleServiceSelection(service)}
         >
           <div className="flex justify-between items-start mb-2">
-            <h4 className="font-medium text-gray-800">{service.name}</h4>
-            <span className="text-pink-600 font-semibold">${service.amount}</span>
+            <h4 className="font-medium text-gray-800">{service.serviceName}</h4>
           </div>
           <p className="text-sm text-gray-600 mb-2">{service.description}</p>
-          <p className="text-sm text-gray-500 mb-2">{service.duration} hours</p>
           {service.staffDTOs && (
             <div className="mt-2">
-              <p className="text-sm font-medium text-gray-700 mb-1">Available Staff:</p>
+              <p className="text-sm font-medium text-gray-700 mb-1">
+                Available Staff:
+              </p>
               <div className="flex flex-wrap gap-2">
                 {service.staffDTOs.map((person, idx) => (
-                  <span key={idx} className="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded">
+                  <span
+                    key={idx}
+                    className="text-xs bg-pink-100 text-pink-800 px-2 py-1 rounded"
+                  >
                     {person.name}
                   </span>
                 ))}
@@ -152,10 +162,14 @@ const BookingWizard = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Available Time Slots</h3>
           <div className="grid grid-cols-3 gap-2">
-            {timeSlots.map(time => (
+            {timeSlots.map((time) => (
               <button
                 key={time}
-                className={`p-2 rounded-lg text-sm ${selectedTime === time ? "bg-pink-600 text-white" : "bg-gray-100 hover:bg-pink-100"}`}
+                className={`p-2 rounded-lg text-sm ${
+                  selectedTime === time
+                    ? "bg-pink-600 text-white"
+                    : "bg-gray-100 hover:bg-pink-100"
+                }`}
                 onClick={() => setSelectedTime(time)}
               >
                 {time}
@@ -168,17 +182,29 @@ const BookingWizard = () => {
         <h3 className="text-xl font-semibold mb-4">Selected Service</h3>
         {selectedService && (
           <div className="mb-4 p-4 bg-gray-50 rounded-lg">
-            <h4 className="font-medium text-gray-800">{selectedService.name}</h4>
-            <p className="text-sm text-gray-600">{selectedService.duration} Hour - ${selectedService.amount}</p>
+            <h4 className="font-medium text-gray-800">
+              {selectedService.serviceName}
+            </h4>
+            <p className="text-sm text-gray-600">
+              {selectedService.duration} Hour - ${selectedService.amount}
+            </p>
             {selectedService.image && (
               <div className="mb-4">
-                <img src={selectedService.image} alt={selectedService.name} className="w-full h-40 object-cover rounded-lg" />
+                <img
+                  src={selectedService.image}
+                  alt={selectedService.serviceName}
+                  className="w-full h-40 object-cover rounded-lg"
+                />
               </div>
             )}
-            <p className="text-sm text-gray-600 mb-4">{selectedService.description}</p>
+            <p className="text-sm text-gray-600 mb-4">
+              {selectedService.description}
+            </p>
             {selectedService.benefits && (
               <div className="mb-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-1">Benefits:</h4>
+                <h4 className="text-sm font-medium text-gray-700 mb-1">
+                  Benefits:
+                </h4>
                 <ul className="list-disc list-inside text-sm text-gray-600">
                   {selectedService.benefits.map((benefit, idx) => (
                     <li key={idx}>{benefit}</li>
@@ -188,7 +214,9 @@ const BookingWizard = () => {
             )}
             {selectedService.reviews && (
               <div className="mb-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-1">Customer Reviews:</h4>
+                <h4 className="text-sm font-medium text-gray-700 mb-1">
+                  Customer Reviews:
+                </h4>
                 <ul className="list-disc list-inside text-sm text-gray-600">
                   {selectedService.reviews.map((review, idx) => (
                     <li key={idx}>{review}</li>
@@ -198,7 +226,9 @@ const BookingWizard = () => {
             )}
             {selectedService.staffDTOs && (
               <div className="mt-4">
-                <h4 className="text-sm font-medium text-gray-700 mb-1">Employee Schedule</h4>
+                <h4 className="text-sm font-medium text-gray-700 mb-1">
+                  Employee Schedule
+                </h4>
                 <ul className="mb-4">
                   {selectedService.staffDTOs.map((staff, idx) => (
                     <li key={idx} className="text-sm text-gray-600">
@@ -209,7 +239,9 @@ const BookingWizard = () => {
               </div>
             )}
             <div className="mt-4">
-              <label className="block text-sm font-medium text-gray-700 mb-1">Special Request (e.g., Preferred Employee)</label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">
+                Special Request (e.g., Preferred Employee)
+              </label>
               <textarea
                 className="w-full p-2 border rounded-lg"
                 placeholder="Enter any special requests here"
@@ -226,71 +258,98 @@ const BookingWizard = () => {
 
   const renderCustomerInfo = () => (
     <div className="max-w-2xl mx-auto">
-      <form className="bg-white p-6 rounded-lg shadow-md space-y-6">
+      <div className="bg-white p-6 rounded-lg shadow-md space-y-6">
+        <h2 className="text-xl font-bold mb-4">Booking Summary</h2>
         <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
-          <div className="relative">
-            <FaUser className="absolute left-3 top-3 text-gray-400" />
-            <input
-              {...register("fullName")}
-              className="pl-10 w-full p-2 border rounded-lg"
-              placeholder="Enter your full name"
-            />
-          </div>
-          {errors.fullName && (
-            <p className="text-red-500 text-sm mt-1">{errors.fullName.message}</p>
-          )}
+          <p>
+            <strong>Service:</strong> {selectedService?.serviceName}
+          </p>
+          <p>
+            <strong>Booking Time:</strong> {format(selectedDate, "yyyy-MM-dd")}{" "}
+            {selectedTime}
+          </p>
+          <p>
+            <strong>Special Request:</strong> {specialRequest}
+          </p>
         </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
-          <div className="relative">
-            <FaMobileAlt className="absolute left-3 top-3 text-gray-400" />
-            <input
-              {...register("phone")}
-              className="pl-10 w-full p-2 border rounded-lg"
-              placeholder="Enter your phone number"
-            />
+        <form className="space-y-6" onSubmit={handleSubmit(handleConfirmBooking)}>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Full Name
+            </label>
+            <div className="relative">
+              <FaUser className="absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                className="w-full p-2 pl-10 border rounded-lg"
+                placeholder="Enter your full name"
+                {...register("fullName")}
+                required
+              />
+              {errors.fullName && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.fullName.message}
+                </p>
+              )}
+            </div>
           </div>
-          {errors.phone && (
-            <p className="text-red-500 text-sm mt-1">{errors.phone.message}</p>
-          )}
-        </div>
-
-        <div>
-          <label className="block text-sm font-medium text-gray-700 mb-1">Email (Optional)</label>
-          <div className="relative">
-            <FaEnvelope className="absolute left-3 top-3 text-gray-400" />
-            <input
-              {...register("email")}
-              className="pl-10 w-full p-2 border rounded-lg"
-              placeholder="Enter your email"
-            />
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Phone Number
+            </label>
+            <div className="relative">
+              <FaMobileAlt className="absolute left-3 top-3 text-gray-400" />
+              <input
+                type="text"
+                className="w-full p-2 pl-10 border rounded-lg"
+                placeholder="Enter your phone number"
+                {...register("phone")}
+                required
+              />
+              {errors.phone && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.phone.message}
+                </p>
+              )}
+            </div>
           </div>
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-          )}
-        </div>
-
-        <div className="mt-8 space-y-4">
-          <div className="bg-pink-50 p-4 rounded-lg border border-pink-200">
-            <h4 className="font-semibold text-pink-700 flex items-center">
-              <FaCheckCircle className="mr-2" />
-              Create Account - Get 20% Off
-            </h4>
-            <p className="text-sm text-pink-600 mt-1">Sign up now and save on your first booking!</p>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              Email (optional)
+            </label>
+            <div className="relative">
+              <FaEnvelope className="absolute left-3 top-3 text-gray-400" />
+              <input
+                type="email"
+                className="w-full p-2 pl-10 border rounded-lg"
+                placeholder="Enter your email"
+                {...register("email")}
+              />
+              {errors.email && (
+                <p className="text-red-500 text-sm mt-1">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
           </div>
-
-          <div className="bg-purple-50 p-4 rounded-lg border border-purple-200">
-            <h4 className="font-semibold text-purple-700 flex items-center">
-              <FaMobileAlt className="mr-2" />
-              Download App - Additional 20% Off
-            </h4>
-            <p className="text-sm text-purple-600 mt-1">Get extra savings with our mobile app!</p>
-            <p className="text-sm text-purple-600 mt-1 font-bold">Coming Soon</p>
+          <div className="mt-4">
+          <label className="flex items-start">
+              <input
+                type="checkbox"
+                className="form-checkbox mt-1"
+                checked={optIn}
+                onChange={(e) => setOptIn(e.target.checked)}
+              />
+              <span className="ml-2 text-sm">
+                I agree to receive appointment confirmations, reminders, and
+                promotional messages via text from Bee You Nail & Spa. Message
+                and data rates may apply. Reply STOP to unsubscribe. Terms and
+                Privacy Policy.
+              </span>
+            </label>
           </div>
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 
@@ -298,19 +357,27 @@ const BookingWizard = () => {
     <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Book Your Appointment Coming Soon</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            Book Your Appointment Coming Soon
+          </h2>
           <div className="flex justify-center items-center space-x-4">
             {[1, 2, 3].map((stepNumber) => (
               <div key={stepNumber} className="flex items-center">
                 <div
-                  className={`w-8 h-8 rounded-full flex items-center justify-center ${step >= stepNumber ? "bg-pink-600 text-white" : "bg-gray-200 text-gray-600"}`}
+                  className={`w-8 h-8 rounded-full flex items-center justify-center ${
+                    step >= stepNumber
+                      ? "bg-pink-600 text-white"
+                      : "bg-gray-200 text-gray-600"
+                  }`}
                 >
                   {stepNumber}
                 </div>
                 {stepNumber < 3 && (
                   <div className="w-20 h-1 mx-2 bg-gray-200">
                     <div
-                      className={`h-full ${step > stepNumber ? "bg-pink-600" : "bg-gray-200"}`}
+                      className={`h-full ${
+                        step > stepNumber ? "bg-pink-600" : "bg-gray-200"
+                      }`}
                     />
                   </div>
                 )}
@@ -327,8 +394,12 @@ const BookingWizard = () => {
 
         <div className="flex justify-between mt-8">
           <button
-            onClick={() => setStep(prev => Math.max(1, prev - 1))}
-            className={`flex items-center px-6 py-2 rounded-lg ${step === 1 ? "bg-gray-200 text-gray-400 cursor-not-allowed" : "bg-gray-600 text-white hover:bg-gray-700"}`}
+            onClick={() => setStep((prev) => Math.max(1, prev - 1))}
+            className={`flex items-center px-6 py-2 rounded-lg ${
+              step === 1
+                ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                : "bg-gray-600 text-white hover:bg-gray-700"
+            }`}
             disabled={step === 1}
           >
             <IoIosArrowBack className="mr-2" /> Back
@@ -338,13 +409,18 @@ const BookingWizard = () => {
               if (step === 3) {
                 handleConfirmBooking();
               } else {
-                setStep(prev => Math.min(3, prev + 1));
+                setStep((prev) => Math.min(3, prev + 1));
               }
             }}
-            className={`flex items-center px-6 py-2 rounded-lg ${step === 1 && !selectedService ? "bg-gray-200 text-gray-400 cursor-not-allowed" : "bg-pink-600 text-white hover:bg-pink-700"}`}
-            disabled={step === 1 && !selectedService}
+            className={`flex items-center px-6 py-2 rounded-lg ${
+              step === 1 && !selectedService
+                ? "bg-gray-200 text-gray-400 cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700"
+            }`}
+            disabled={step === 1 && !selectedService || (step === 3 && !optIn)}
           >
-            {step === 3 ? "Confirm Booking" : "Next"} <IoIosArrowForward className="ml-2" />
+            {step === 3 ? "Confirm Booking" : "Next"}{" "}
+            <IoIosArrowForward className="ml-2" />
           </button>
         </div>
       </div>

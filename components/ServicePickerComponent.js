@@ -14,11 +14,15 @@ function ServicePickerComponent() {
   const [currentSelected, setCurrentSelected] = useState(null);
 
   const dispatch = useDispatch();
+  
 
   useEffect(() => {
     const fenceData = async () => {
       try {
-        const serviceResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Service/getAll`);
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://fallback-url.com";
+        const url = `${baseUrl}/Service`;
+        console.log("API URL: ", url);
+        const serviceResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/Service`);
         if (!serviceResponse.ok) {
           throw new Error("Failed to fetch Data");
         }

@@ -15,7 +15,7 @@ export default function Navbar() {
 
       {/* Navigation Links */}
       <ul className="flex space-x-6 text-sm md:text-base md:space-x-8 flex-wrap justify-center md:justify-start">
-        <Link href="/schedule">
+        <Link href="https://app.squareup.com/appointments/book/z3cutw95ioa0kc/LJWTNTQ6EXXFA/start">
           <li className="hover:underline cursor-pointer">BOOKING</li>
         </Link>
         <Link href="/menu">
@@ -26,7 +26,7 @@ export default function Navbar() {
 
       {/* Buttons */}
       <div className="flex flex-wrap space-x-4 justify-center md:justify-start mt-4 md:mt-0">
-      <Link href="/schedule">
+      <Link href="https://app.squareup.com/appointments/book/z3cutw95ioa0kc/LJWTNTQ6EXXFA/start">
           <button className="border px-4 py-2 rounded-lg hover:bg-black hover:text-white transition-colors duration-300 w-full md:w-auto">
             BOOK APPOINTMENT
           </button>
