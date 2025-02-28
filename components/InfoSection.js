@@ -6,7 +6,7 @@ export default function InfoSection() {
       image: "/images/nails1.jpg",
       title: "Booking Our Service",
       icon: "💎",
-      link: "/schedule",
+      link: "/https://app.squareup.com/appointments/book/z3cutw95ioa0kc/LJWTNTQ6EXXFA/start",
     },
     {
       image: "/images/nails2.jpg",
