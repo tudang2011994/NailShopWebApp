@@ -49,25 +49,27 @@ const Gallery = () => {
   }, [numImages]);
 
   return (
-    <div>
-      <h2 className="text-3xl font-extrabold text-purple-600 mb-6 underline">Our Gallery</h2>
+    <section aria-labelledby="gallery-section" className="py-12 bg-[#FAF6F2]">
+      <h2 id="gallery-section" className="text-3xl font-extrabold text-purple-600 mb-6 underline">
+        Our Gallery
+      </h2>
       <div className="gallery grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 p-2">
         {displayedImages.map((img) => (
           isMobile ? (
-            <div key={img.public_id} className="gallery-item">
+            <div key={img.public_id} className="gallery-item" aria-labelledby={`img-${img.public_id}`}>
               <img
                 src={`https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_fill,q_auto:best/${img.public_id}.jpg`}
-                alt={img.public_id}
+                alt={`Gallery image titled ${img.public_id}`} // Use descriptive alt text
                 loading="lazy"
                 className="w-full h-auto rounded-lg shadow-md"
               />
             </div>
           ) : (
             <Fade key={img.public_id} triggerOnce={true} duration={1000}>
-              <div className="gallery-item">
+              <div className="gallery-item" aria-labelledby={`img-${img.public_id}`}>
                 <img
                   src={`https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_fill,q_auto:best/${img.public_id}.jpg`}
-                  alt={img.public_id}
+                  alt={`Gallery image titled ${img.public_id}`} // Descriptive alt text
                   loading="lazy"
                   className="w-full h-auto rounded-lg shadow-md"
                 />
@@ -76,7 +78,7 @@ const Gallery = () => {
           )
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 

@@ -6,7 +6,7 @@ const menuData = {
   pedicure: {
     image: "https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739741116/pedicure_menu_1_cvbgyz.jpg",
     items: [
-      { name: "Classic pedicure", description: "A simple yet refreshing treatment! Enjoy a soothing foot soak, precise nail shaping, and cuticle care, followed by a relaxing lotion massage. Finish off with a warm towel wrap and your choice of polish for that perfect touch.   " },
+      { name: "Classic pedicure", description: "A simple yet refreshing treatment! Enjoy a soothing foot soak, precise nail shaping, and cuticle care, followed by a relaxing lotion massage. Finish off with a warm towel wrap and your choice of polish for that perfect touch." },
       { name: "Callus pedicure", description: "Say goodbye to rough heels! This pedicure includes everything from the Classic, plus a callus treatment to smooth out hardened skin. Lotion massage, hot towel therapy, and polish complete the experience, leaving your feet feeling brand new." },
       { name: "Deluxe pedicure", description: "Indulge in a deeper level of relaxation. Along with a callus treatment, enjoy a gentle sugar scrub and a soothing peppermint mask to revitalize your feet. A warm lotion massage and hot towel wrap seal in the moisture, leaving your skin soft and refreshed." },
       { name: "Luxury pedicure", description: "Pamper your feet with a luxurious jelly soak that hydrates and soothes. This indulgent pedicure includes a sugar scrub, peppermint mask, paraffin wax bath, and an extended lotion massage for ultimate relaxation. Topped off with a hot towel wrap and polish, your feet will thank you!" },
@@ -23,8 +23,7 @@ const menuData = {
       { name: "Bee You Signature", description: "The ultimate hand spa experience! Enjoy a sugar scrub to exfoliate, a cooling peppermint mask to refresh, and a warm paraffin wax bath to deeply hydrate. A soothing lotion massage, hot towel wrap, and your choice of polish make this the perfect luxury treat." },
       { name: "** Additional Service **", description: "Add Gel Polish for a long-lasting, high-shine finish" },
     ],
-},
-
+  },
   facial: {
     image: "https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739749924/facial_menu_wue1po.jpg",
     items: [
@@ -40,8 +39,8 @@ const menuData = {
   wax: {
     image: "https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739741945/wax_menu_vtb5qf.jpg",
     items: [
-        { name: "Waxing", description: "We offer a variety of professional waxing services to keep your skin smooth and hair-free. From precise facial waxing, including eyebrows, lip, and chin, to full-body options like arms, legs, back, and chest, we cater to your grooming needs. Whether you're looking for a simple bikini wax or a full Brazilian, our services ensure a comfortable and long-lasting result. Experience smooth, flawless skin with our expert waxing treatments!" },
-      ],
+      { name: "Waxing", description: "We offer a variety of professional waxing services to keep your skin smooth and hair-free. From precise facial waxing, including eyebrows, lip, and chin, to full-body options like arms, legs, back, and chest, we cater to your grooming needs. Whether you're looking for a simple bikini wax or a full Brazilian, our services ensure a comfortable and long-lasting result. Experience smooth, flawless skin with our expert waxing treatments!" },
+    ],
   },
 };
 
@@ -58,9 +57,13 @@ export default function Menu() {
               <span
                 key={category}
                 className={`px-4 py-2 my-2 cursor-pointer ${
-                  selectedCategory === category ? "text-blue-500 font-bold" : "text-gray-700"
+                  selectedCategory === category
+                    ? "text-blue-500 font-bold bg-blue-100 rounded-lg"
+                    : "text-gray-700"
                 }`}
                 onClick={() => setSelectedCategory(category)}
+                role="button"
+                aria-label={`Select ${category.charAt(0).toUpperCase() + category.slice(1)} category`}
               >
                 {category.charAt(0).toUpperCase() + category.slice(1)}
               </span>

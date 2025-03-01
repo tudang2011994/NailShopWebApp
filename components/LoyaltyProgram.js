@@ -1,9 +1,10 @@
 "use client";
 import ScrollingLogos from './ScrollingLogos';
+import Image from 'next/image'; // For optimized image loading
 
 export default function RoyaltyProgram() {
   return (
-    <div className="bg-cream-100 text-center py-8 px-4">
+    <section className="bg-cream-100 text-center py-8 px-4">
       <h1 className="text-5xl font-bold mb-4">
         Join Our <span className="text-gradient">ROYALTY</span> Program
       </h1>
@@ -13,6 +14,7 @@ export default function RoyaltyProgram() {
       <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">
         And more Coupons for Members
       </button>
+      
       <ScrollingLogos />
       
       {/* New Description Above Images */}
@@ -23,20 +25,24 @@ export default function RoyaltyProgram() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
         <div className="flex justify-center items-center w-full rounded-lg overflow-hidden">
-          <img
+          <Image
             src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739750492/Beeyou_package_vs2r0s.jpg"
             alt="Bee You Package"
+            width={500} // Specify width for image optimization
+            height={500} // Specify height for image optimization
             className="object-contain w-full h-auto max-h-[500px]"
           />
         </div>
         <div className="flex justify-center items-center w-full rounded-lg overflow-hidden">
-          <img
+          <Image
             src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739752665/bee_you_package_2_etyahj.jpg"
             alt="Leg Treatment"
+            width={500} // Specify width for image optimization
+            height={500} // Specify height for image optimization
             className="object-contain w-full h-auto max-h-[500px]"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
