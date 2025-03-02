@@ -1,9 +1,13 @@
 "use client";
+
 export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex justify-center items-center">
+      {/* Preload Hero Image */}
+      <link rel="preload" href="/images/hero1.webp" as="image" type="image/jpeg" />
+      
       {/* Background with Gradient Overlay */}
-      <div className="absolute inset-0 bg-[url('/images/hero1.jpg')] bg-cover bg-center">
+      <div className="absolute inset-0 bg-[url('/images/hero1.webp')] bg-cover bg-center">
         <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(255,255,255,0.3)]"></div>
       </div>
 
@@ -23,10 +27,10 @@ export default function Hero() {
 
         {/* Description with Keywords */}
         <p className="text-base md:text-lg lg:text-xl mt-4 text-gray-800 leading-relaxed">
-          Treat yourself to **manicures**, **pedicures**,  
-          **full sets**, **eyelash extensions**, and more!  
-          Our skilled technicians offer **10+ years** of experience in a relaxing and stylish environment.  
-          **Book today** and enjoy an exclusive offer!  
+          Treat yourself to <strong>manicures</strong>, <strong>pedicures</strong>,  
+          <strong>full sets</strong>, <strong>eyelash extensions</strong>, and more!  
+          Our skilled technicians offer <strong>10+ years</strong> of experience in a relaxing and stylish environment.  
+          <strong>Book today</strong> and enjoy an exclusive offer!  
         </p>
 
         {/* Call to Action Button */}

@@ -1,0 +1,9 @@
+{
+    "redirects": [
+      {
+        "source": "http://beeyounail.com/:path*",
+        "destination": "https://www.beeyounail.com/:path*",
+        "permanent": true
+      }
+    ]
+  }
