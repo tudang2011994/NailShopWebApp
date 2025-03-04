@@ -22,7 +22,7 @@ export default function InfoSection() {
       image: "/images/nails3.jpg",
       title: "Monthly Specials",
       icon: "❤️",
-      link: "/specials",
+      link: "/deals",
       description: "Check out our monthly specials and discounts on nail services.",
       altText: "Image showing the monthly specials for nails"
     },
