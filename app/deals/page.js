@@ -5,7 +5,7 @@ const DealsPage = () => {
   const deals = [
     {
       title: 'Spring Special',
-      description: 'Enjoy 15% off on all nail services this spring season!',
+      description: 'Enjoy 10% off on all nail services this spring season!',
       image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1741114526/Screenshot_2025-03-04_105446_xe41wz.png',
     },
     // Add more deals as needed
