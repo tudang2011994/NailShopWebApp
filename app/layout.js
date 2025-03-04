@@ -1,8 +1,8 @@
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "../styles/globals.css";
 import ClientProvider from "./ClientProvider";
-
+import Script from "next/script";
+import Head from "next/head";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -21,32 +21,43 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ClientProvider children={children} >
-          <div id="root">  
-            {children}
-          </div>
+      <Head>
+        {/* ✅ Preload Google Fonts to reduce render-blocking */}
+        <link
+          rel="preload"
+          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+          as="style"
+          onLoad="this.onload=null;this.rel='stylesheet'"
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
+          />
+        </noscript>
+      </Head>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <ClientProvider>
+          <div id="root">{children}</div>
         </ClientProvider>
-        <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                window.onscroll = function() {
-                  var navbar = document.querySelector('.navbar');
-                  if (window.scrollY > 50) {
-                    navbar.classList.add('scrolled');
-                  } else {
-                    navbar.classList.remove('scrolled');
-                  }
-                }               
-              `,
-            }}
-          />       
+
+        {/* ✅ Use Next.js <Script> for better performance */}
+        <Script id="navbar-scroll-effect" strategy="afterInteractive">
+          {`
+            window.addEventListener("scroll", function() {
+              var navbar = document.querySelector('.navbar');
+              if (navbar) {
+                if (window.scrollY > 50) {
+                  navbar.classList.add('scrolled');
+                } else {
+                  navbar.classList.remove('scrolled');
+                }
+              }
+            });
+          `}
+        </Script>
       </body>
     </html>
-
   );
 }

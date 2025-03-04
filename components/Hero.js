@@ -1,4 +1,5 @@
 "use client";
+import { useEffect, useState } from "react";
 
 export default function Hero() {
   return (
@@ -12,9 +13,15 @@ export default function Hero() {
       </div>
 
       {/* Content Box */}
-      <div 
-        className="relative p-8 md:p-10 lg:p-14 rounded-xl shadow-xl bg-white/90 backdrop-blur-md max-w-3xl text-center animate-fadeIn"
-      >
+      <div className="relative p-8 md:p-10 lg:p-14 rounded-xl shadow-xl bg-white/90 backdrop-blur-md max-w-3xl text-center animate-fadeIn">
+        {/* Promotion Banner */}
+        <a 
+          href="/deals" 
+          className="block bg-gradient-to-r from-[#ff7eb3] to-[#ff4081] text-white text-lg md:text-xl font-semibold px-4 py-2 rounded-lg shadow-md mb-4 transition-all hover:scale-105 animate-fadeIn"
+        >
+          🌸 Hello Spring Deals Now – <span className="underline">Explore More</span> 🌸
+        </a>
+
         {/* Title */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#d63384] drop-shadow-lg">
           Bee You Nail & Spa  
@@ -25,7 +32,7 @@ export default function Hero() {
           Luxurious Nail Care & Beauty in El Cajon & La Mesa
         </p>
 
-        {/* Description with Keywords */}
+        {/* Description */}
         <p className="text-base md:text-lg lg:text-xl mt-4 text-gray-800 leading-relaxed">
           Treat yourself to <strong>manicures</strong>, <strong>pedicures</strong>,  
           <strong>full sets</strong>, <strong>eyelash extensions</strong>, and more!  
@@ -45,10 +52,10 @@ export default function Hero() {
       {/* Smooth Animation */}
       <style jsx>{`
         @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(20px); }
+          from { opacity: 0; transform: translateY(-10px); }
           to { opacity: 1; transform: translateY(0); }
         }
-        .animate-fadeIn { animation: fadeIn 1s ease-out; }
+        .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
       `}</style>
     </section>
   );

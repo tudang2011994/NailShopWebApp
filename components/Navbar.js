@@ -32,7 +32,7 @@ export default function Navbar() {
           </Link>
         </li>
         <li>
-          <Link href="/deals-and-promotions" title="Check out deals and promotions" className="hover:underline cursor-pointer">
+          <Link href="/deals" title="Check out deals and promotions" className="hover:underline cursor-pointer">
             DEAL & PROMOTION
           </Link>
         </li>

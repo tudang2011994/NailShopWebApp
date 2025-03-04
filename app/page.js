@@ -34,7 +34,7 @@ export default function Home() {
         <meta property="og:title" content="Best Nail Salon in La Mesa & El Cajon | Manicure, Pedicure, Eyelash Extensions" />
         <meta property="og:description" content="Visit our top-rated nail salon in La Mesa & El Cajon! Get professional manicures, pedicures, full set nails, fills, eyelash extensions, and waxing." />
         <meta property="og:image" content="/images/nail-salon-preview.jpg" />
-        <meta property="og:url" content="https://yourdomain.com" />
+        <meta property="og:url" content="https://beeyounail.com" />
         <meta property="og:type" content="website" />
 
         {/* Twitter Card */}

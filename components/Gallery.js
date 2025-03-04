@@ -15,16 +15,16 @@ const Gallery = () => {
   const updateImageCount = () => {
     if (window.innerWidth < 640) {
       setNumImages(5); // Show only 5 images on mobile
-      setIsMobile(true); // Set isMobile to true for mobile devices
+      setIsMobile(true);
     } else {
       setNumImages(10); // Show 10 images on larger screens
-      setIsMobile(false); // Set isMobile to false for larger screens
+      setIsMobile(false);
     }
   };
 
   useEffect(() => {
-    updateImageCount(); // Set the initial image count
-    window.addEventListener("resize", updateImageCount); // Update on window resize
+    updateImageCount();
+    window.addEventListener("resize", updateImageCount);
 
     return () => {
       window.removeEventListener("resize", updateImageCount);
@@ -58,9 +58,11 @@ const Gallery = () => {
           isMobile ? (
             <div key={img.public_id} className="gallery-item" aria-labelledby={`img-${img.public_id}`}>
               <img
-                src={`https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_fill,q_auto:best/${img.public_id}.jpg`}
-                alt={`Gallery image titled ${img.public_id}`} // Use descriptive alt text
+                src={`https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_fill,q_auto:best,w_300,h_300/${img.public_id}.jpg`}
+                alt={`Gallery image titled ${img.public_id}`}
                 loading="lazy"
+                width="300" // Set explicit width
+                height="300" // Set explicit height
                 className="w-full h-auto rounded-lg shadow-md"
               />
             </div>
@@ -68,9 +70,11 @@ const Gallery = () => {
             <Fade key={img.public_id} triggerOnce={true} duration={1000}>
               <div className="gallery-item" aria-labelledby={`img-${img.public_id}`}>
                 <img
-                  src={`https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_fill,q_auto:best/${img.public_id}.jpg`}
-                  alt={`Gallery image titled ${img.public_id}`} // Descriptive alt text
+                  src={`https://res.cloudinary.com/${CLOUD_NAME}/image/upload/c_fill,q_auto:best,w_400,h_400/${img.public_id}.jpg`}
+                  alt={`Gallery image titled ${img.public_id}`}
                   loading="lazy"
+                  width="400" // Set explicit width for non-mobile
+                  height="400" // Set explicit height for non-mobile
                   className="w-full h-auto rounded-lg shadow-md"
                 />
               </div>
