@@ -14,6 +14,12 @@ export default function Hero() {
 
       {/* Content Box */}
       <div className="relative p-8 md:p-10 lg:p-14 rounded-xl shadow-xl bg-white/90 backdrop-blur-md max-w-3xl text-center animate-fadeIn">
+        
+        {/* Walk-in Welcome Animation */}
+        <div className="text-2xl md:text-3xl font-bold text-[#d63384] animate-walk mb-4">
+          👣 Walk-in Welcome! 👣
+        </div>
+
         {/* Promotion Banner */}
         <a 
           href="/deals" 
@@ -56,6 +62,12 @@ export default function Hero() {
           to { opacity: 1; transform: translateY(0); }
         }
         .animate-fadeIn { animation: fadeIn 0.8s ease-out; }
+
+        @keyframes walk {
+          0% { transform: translateX(-100%); opacity: 0; }
+          100% { transform: translateX(0); opacity: 1; }
+        }
+        .animate-walk { animation: walk 1s ease-out; }
       `}</style>
     </section>
   );
