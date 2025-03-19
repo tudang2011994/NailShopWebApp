@@ -36,6 +36,17 @@ export default function RootLayout({ children }) {
             href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap"
           />
         </noscript>
+        <Script
+          id="google-ads-script"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-16852708460');
+          `}
+        </Script>
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <ClientProvider>
