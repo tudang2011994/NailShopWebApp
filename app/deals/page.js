@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 const DealsPage = () => {
   const deals = [
     {
-      title: 'Spring Special',
-      description: 'Enjoy 10% off on all nail services this spring season!',
-      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1741114526/Screenshot_2025-03-04_105446_xe41wz.png',
+      title: 'Happy Easter',
+      description: 'Enjoy Free Upgraded Services',
+      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1745018644/Pink_Yellow_Orange_Colorful_Easter_Egg_Hunt_Flyer_m3uxwb.png',
     },
     // Add more deals as needed
   ];
