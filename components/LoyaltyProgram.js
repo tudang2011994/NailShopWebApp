@@ -9,7 +9,7 @@ export default function RoyaltyProgram() {
         Join Our <span className="text-gradient">ROYALTY</span> Program
       </h1>
       <p className="text-xl mb-8">
-        Experience exclusive perks every time you visit. Earn credits, unlock discounts, and enjoy a special birthday treat. Sign up now to discover how you can enjoy these exclusive rewards and make every visit even more delightful.
+        Experience exclusive perks every time you visit. Earn credits, unlock discounts, and enjoy a special birthday treat. Booking now to discover how you can enjoy these exclusive rewards and make every visit even more delightful.
       </p>
       <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">
         And more Coupons for Members
