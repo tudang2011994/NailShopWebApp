@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 const DealsPage = () => {
   const deals = [
     {
-      title: 'Happy Easter',
-      description: 'Enjoy Free Upgraded Services',
-      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1745018644/Pink_Yellow_Orange_Colorful_Easter_Egg_Hunt_Flyer_m3uxwb.png',
+      title: 'Small Gift For Your Mom',
+      description: 'Enjoy 20% more value when you buy a gift card!',
+      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1745688657/Brown_Simple_Mother_s_Day_Sale_Instagram_Post_tlx9zu.png',
     },
     // Add more deals as needed
   ];
