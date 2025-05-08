@@ -39,12 +39,15 @@ export default function Hero() {
         </p>
 
         {/* Description */}
-        <p className="text-base md:text-lg lg:text-xl mt-4 text-gray-800 leading-relaxed">
-          Treat yourself to <strong>manicures</strong>, <strong>pedicures</strong>,  
-          <strong>full sets</strong>, <strong>eyelash extensions</strong>, and more!  
-          Our skilled technicians offer <strong>10+ years</strong> of experience in a relaxing and stylish environment.  
-          <strong>Book today</strong> and enjoy an exclusive offer!  
-        </p>
+        <h2>Our Services</h2>
+        <ul>
+          <li><strong>Acrylic & Gel Nails</strong>: Durable and stylish nail enhancements.</li>
+          <li><strong>Full Sets & Nail Art</strong>: Customized designs to express your style.</li>
+          <li><strong>Spa Pedicure Packages</strong>: Relaxing treatments with exfoliation and foot massage.</li>
+          <li><strong>Eyelash Extensions</strong>: Enhance your eyes with classic, hybrid, or volume lashes.</li>
+          <li><strong>Waxing Services</strong>: Smooth, hair-free skin with professional waxing treatments.</li>
+        </ul>
+        <p>Our skilled technicians bring over 10 years of experience, ensuring top-notch services in a relaxing and stylish environment.</p>
 
         {/* Call to Action Button */}
         <a 

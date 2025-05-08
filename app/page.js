@@ -6,6 +6,7 @@ import ScrollingLogos from "@/components/ScrollingLogos"; // Import client compo
 import ServicesSlider from "@/components/ServicesSlider";
 import LoyaltyProgram from "@/components/LoyaltyProgram";
 import ContactSection from "@/components/ContactSection";
+import PromoPopup from '@/components/PromoPopup';
 import Gallery from "@/components/Gallery";
 import Script from 'next/script';
 
@@ -58,6 +59,8 @@ export default function Home() {
         <meta name="twitter:description" content="Top nail services including manicures, pedicures, full set, fills, eyelash extensions, and waxing. Walk-ins welcome!" />
         <meta name="twitter:image" content="/images/nail-salon-preview.jpg" />
 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 
 
         {/* Favicon */}
@@ -66,6 +69,7 @@ export default function Home() {
       
       <Navbar />
       <div className="bg-[rgb(250,246,242)] min-h-screen">
+        {/* <PromoPopup /> */}
         <Hero />
         <InfoSection />
         <Gallery />
