@@ -19,7 +19,7 @@ export default function InfoSection() {
       altText: "Image showing the nail services menu"
     },
     {
-      image: "/images/nails3.jpg",
+      image: "https://res.cloudinary.com/dk9cq2dqn/image/upload/v1748467999/Enjoy_Free_upgrade_dgtc2u.png",
       title: "Monthly Specials",
       icon: "❤️",
       link: "/deals",

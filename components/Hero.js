@@ -25,7 +25,7 @@ export default function Hero() {
           href="/deals" 
           className="block bg-gradient-to-r from-[#ff7eb3] to-[#ff4081] text-white text-lg md:text-xl font-semibold px-4 py-2 rounded-lg shadow-md mb-4 transition-all hover:scale-105 animate-fadeIn"
         >
-           💝 Special Offer For Mother Day – <span className="underline">Explore More</span> 💝
+           👨‍🦰 Special Offer For Father Day – <span className="underline">Explore More</span> 👨‍🦰
         </a>
 
         {/* Title */}

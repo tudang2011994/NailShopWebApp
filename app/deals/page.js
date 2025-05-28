@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 const DealsPage = () => {
   const deals = [
     {
-      title: 'Small Gift For Your Mom',
-      description: 'Enjoy 20% more value when you buy a gift card!',
-      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1745688657/Brown_Simple_Mother_s_Day_Sale_Instagram_Post_tlx9zu.png',
+      title: 'Small Gift For Him',
+      description: 'Enjoy Free Upgrade Pedicure Package For Your Man!',
+      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1748467999/Enjoy_Free_upgrade_dgtc2u.png',
     },
     // Add more deals as needed
   ];
