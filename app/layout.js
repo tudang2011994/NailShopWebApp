@@ -67,10 +67,11 @@ export default function RootLayout({ children }) {
             `,
           }}
         /> */}
-        <GoogleAnalytics gaId="AW-16852708460" />
+        <GoogleAnalytics gtmId="AW-16852708460" />
 
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <GoogleAnalytics gtmId="AW-16852708460" />
         <ClientProvider>
           <div id="root">{children}</div>
         </ClientProvider>
