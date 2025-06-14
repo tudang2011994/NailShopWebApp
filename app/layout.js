@@ -3,7 +3,7 @@ import "../styles/globals.css";
 import ClientProvider from "./ClientProvider";
 import Script from "next/script";
 import Head from "next/head";
-import { GoogleAnalytics } from '@next/third-parties/google';
+import { GoogleTagManager  } from '@next/third-parties/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -67,11 +67,11 @@ export default function RootLayout({ children }) {
             `,
           }}
         /> */}
-        <GoogleAnalytics gtmId="AW-16852708460" />
+        <GoogleTagManager  gtmId="AW-16852708460" />
 
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <GoogleAnalytics gtmId="AW-16852708460" />
+        <GoogleTagManager  gtmId="AW-16852708460" />
         <ClientProvider>
           <div id="root">{children}</div>
         </ClientProvider>
