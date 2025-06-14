@@ -3,6 +3,7 @@ import "../styles/globals.css";
 import ClientProvider from "./ClientProvider";
 import Script from "next/script";
 import Head from "next/head";
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -48,7 +49,7 @@ export default function RootLayout({ children }) {
           `}
         </Script> */}
 
-        <noscript
+        {/* <noscript
           dangerouslySetInnerHTML={{
             __html: `
               <iframe src="https://www.googletagmanager.com/gtag/js?id=AW-16852708460"
@@ -65,7 +66,8 @@ export default function RootLayout({ children }) {
               gtag('config', 'AW-16852708460'););
             `,
           }}
-        />
+        /> */}
+        <GoogleAnalytics gaId={'AW-16852708460'} />
 
       </Head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
