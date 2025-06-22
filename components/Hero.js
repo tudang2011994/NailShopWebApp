@@ -6,19 +6,23 @@ export default function Hero() {
   return (
     <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden">
       
-      {/* Optimized Background Image */}
-      <Image
-        src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1750629202/hero3_sejpw6.jpg"
-        alt="Hero Background"
-        fill
-        priority
-        quality={75}
-        className="object-cover object-center z-0"
-        sizes="100vw"
-      />
-      
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(255,255,255,0.3)] z-10" />
+      {/* Mobile: Lightweight gradient background */}
+      <div className="absolute inset-0 block md:hidden bg-gradient-to-b from-green-100 to-white" />
+
+      {/* Desktop: Background Image */}
+      <div className="hidden md:block absolute inset-0">
+        <Image
+          src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1750619956/hero12_ovkyen.jpg"
+          alt="Hero Background"
+          fill
+          priority
+          quality={60}
+          className="object-cover object-center"
+          sizes="100vw"
+        />
+        {/* Optional Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 to-white/30" />
+      </div>
 
       {/* Content Box */}
       <div className="relative z-20 p-8 md:p-10 lg:p-14 rounded-xl shadow-xl bg-white/90 backdrop-blur-md max-w-3xl text-center animate-fadeIn">
