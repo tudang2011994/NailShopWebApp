@@ -8,11 +8,11 @@ export default function Hero() {
       
       {/* Optimized Background Image */}
       <Image
-        src="/images/hero1.webp"
+        src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1750618725/hero_sghtzh.jpg"
         alt="Hero Background"
         fill
         priority
-        quality={90}
+        quality={75}
         className="object-cover object-center z-0"
         sizes="100vw"
       />
