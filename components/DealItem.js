@@ -17,7 +17,7 @@ const DealItem = ({ title, description, image }) => (
     </div>
 
     {/* Right Side: Image */}
-    <div className="md:w-1/2 mt-6 md:mt-0 flex justify-center">
+    <div className="md: w-1/2 mt-6 md:mt-0 flex justify-center">
       <Image
         src={image}
         alt={title}

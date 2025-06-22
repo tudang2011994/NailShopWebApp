@@ -1,19 +1,27 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
 
 export default function Hero() {
   return (
-    <section className="relative w-full min-h-screen flex justify-center items-center">
-      {/* Preload Hero Image */}
-      <link rel="preload" href="/images/hero1.webp" as="image" type="image/jpeg" />
+    <section className="relative w-full min-h-screen flex justify-center items-center overflow-hidden">
       
-      {/* Background with Gradient Overlay */}
-      <div className="absolute inset-0 bg-[url('/images/hero1.webp')] bg-cover bg-center">
-        <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(255,255,255,0.3)]"></div>
-      </div>
+      {/* Optimized Background Image */}
+      <Image
+        src="/images/hero1.webp"
+        alt="Hero Background"
+        fill
+        priority
+        quality={90}
+        className="object-cover object-center z-0"
+        sizes="100vw"
+      />
+      
+      {/* Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(0,0,0,0.5)] to-[rgba(255,255,255,0.3)] z-10" />
 
       {/* Content Box */}
-      <div className="relative p-8 md:p-10 lg:p-14 rounded-xl shadow-xl bg-white/90 backdrop-blur-md max-w-3xl text-center animate-fadeIn">
+      <div className="relative z-20 p-8 md:p-10 lg:p-14 rounded-xl shadow-xl bg-white/90 backdrop-blur-md max-w-3xl text-center animate-fadeIn">
         
         {/* Walk-in Welcome Animation */}
         <div className="text-2xl md:text-3xl font-bold text-[#d63384] animate-walk mb-4">
@@ -25,12 +33,12 @@ export default function Hero() {
           href="/deals" 
           className="block bg-gradient-to-r from-[#ff7eb3] to-[#ff4081] text-white text-lg md:text-xl font-semibold px-4 py-2 rounded-lg shadow-md mb-4 transition-all hover:scale-105 animate-fadeIn"
         >
-           👨‍🦰 Special Offer For Father Day – <span className="underline">Explore More</span> 👨‍🦰
+          🥂 Happy July 4th deals – <span className="underline">Explore More</span> 🥂 
         </a>
 
         {/* Title */}
         <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#d63384] drop-shadow-lg">
-          Bee You Nail & Spa  
+          Bee You Nail & Spa
         </h1>
 
         {/* Subheading */}
@@ -39,15 +47,17 @@ export default function Hero() {
         </p>
 
         {/* Description */}
-        <h2>Our Services</h2>
-        <ul>
+        <h2 className="text-xl font-bold mt-4">Our Services</h2>
+        <ul className="text-left mt-2 text-gray-800">
           <li><strong>Acrylic & Gel Nails</strong>: Durable and stylish nail enhancements.</li>
           <li><strong>Full Sets & Nail Art</strong>: Customized designs to express your style.</li>
           <li><strong>Spa Pedicure Packages</strong>: Relaxing treatments with exfoliation and foot massage.</li>
           <li><strong>Eyelash Extensions</strong>: Enhance your eyes with classic, hybrid, or volume lashes.</li>
           <li><strong>Waxing Services</strong>: Smooth, hair-free skin with professional waxing treatments.</li>
         </ul>
-        <p>Our skilled technicians bring over 10 years of experience, ensuring top-notch services in a relaxing and stylish environment.</p>
+        <p className="mt-2">
+          Our skilled technicians bring over 10 years of experience, ensuring top-notch services in a relaxing and stylish environment.
+        </p>
 
         {/* Call to Action Button */}
         <a 

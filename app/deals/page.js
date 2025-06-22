@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 const DealsPage = () => {
   const deals = [
     {
-      title: 'Small Gift For Him',
-      description: 'Enjoy Free Upgrade Pedicure Package For Your Man!',
-      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1748467999/Enjoy_Free_upgrade_dgtc2u.png',
+      title: 'Happy July 4th',
+      description: 'Get 5% OFF for each U.S. flag color your outfit matches!',
+      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1750615775/July4_oto9tv.png',
     },
     // Add more deals as needed
   ];
