@@ -1,35 +1,32 @@
-"use client";
+'use client';
 import ScrollingLogos from './ScrollingLogos';
-import Image from 'next/image'; // For optimized image loading
+import Image from 'next/image';
 
 export default function RoyaltyProgram() {
   return (
     <section className="bg-cream-100 text-center py-8 px-4">
-      <h1 className="text-5xl font-bold mb-4">
-        Join Our <span className="text-gradient">ROYALTY</span> Program
-      </h1>
-      <p className="text-xl mb-8">
-        Experience exclusive perks every time you visit. Earn credits, unlock discounts, and enjoy a special birthday treat. Booking now to discover how you can enjoy these exclusive rewards and make every visit even more delightful.
-      </p>
-      <button className="bg-black text-white py-2 px-4 rounded hover:bg-gray-800 transition">
-        And more Coupons for Members
-      </button>
-      
-      <ScrollingLogos />
-      
-      {/* New Description Above Images */}
-      <p className="text-2xl font-semibold mt-12">
-        Trying our <span className="text-gradient font-playfair">Bee You Pedicure Package</span> won’t let you down!  
-        Enjoy a relaxing massage that melts away stress and leaves you feeling refreshed.
-      </p>
-
+    <section className="bg-white py-12 px-6">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-semibold text-[#black]">Ultimate Relaxation</h2>
+              <p className="text-2xl font-semibold text-[#black] mt-4">Spa Pedicures</p>
+              <p className="text-lg text-gray-700 mt-4">
+                Seasonal Scents | Organic Options | Callus Removal | Relaxing Massages | Paraffin & More!
+              </p>
+                <a
+                href="https://app.squareup.com/appointments/book/z3cutw95ioa0kc/LJWTNTQ6EXXFA/start"
+                className="inline-block bg-[#ff6f61] text-white text-lg font-semibold py-3 px-8 rounded-full shadow-md hover:bg-[#bf2c74] transition-all"
+              >
+                Book Your Pedicure
+              </a>
+            </div>
+          </section>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
         <div className="flex justify-center items-center w-full rounded-lg overflow-hidden">
           <Image
             src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739750492/Beeyou_package_vs2r0s.jpg"
             alt="Bee You Package"
-            width={500} // Specify width for image optimization
-            height={500} // Specify height for image optimization
+            width={500}
+            height={500}
             className="object-contain w-full h-auto max-h-[500px]"
           />
         </div>
@@ -37,8 +34,8 @@ export default function RoyaltyProgram() {
           <Image
             src="https://res.cloudinary.com/dk9cq2dqn/image/upload/v1739752665/bee_you_package_2_etyahj.jpg"
             alt="Leg Treatment"
-            width={500} // Specify width for image optimization
-            height={500} // Specify height for image optimization
+            width={500}
+            height={500}
             className="object-contain w-full h-auto max-h-[500px]"
           />
         </div>

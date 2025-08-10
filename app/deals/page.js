@@ -1,5 +1,6 @@
 import DealItem from '@/components/DealItem';
 import Navbar from "@/components/Navbar";
+import clsx from "clsx";
 
 const DealsPage = () => {
   const deals = [

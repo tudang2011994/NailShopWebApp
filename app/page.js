@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import PromoPopup from '@/components/PromoPopup';
 import Gallery from "@/components/Gallery";
 import Script from 'next/script';
+import clsx from "clsx";
 
 export default function Home() {
   return (
@@ -68,12 +69,12 @@ export default function Home() {
       </Head>
       
       <Navbar />
-      <div className="bg-[rgb(250,246,242)] min-h-screen">
+      <div className=" min-h-screen">
         {/* <PromoPopup /> */}
         <Hero />
         <InfoSection />
         <Gallery />
-        <ServicesSlider />
+        {/* <ServicesSlider /> */}
         <LoyaltyProgram />
         <ContactSection />
       </div>

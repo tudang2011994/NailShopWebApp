@@ -4,6 +4,7 @@ import ClientProvider from "./ClientProvider";
 import Script from "next/script";
 import Head from "next/head";
 import { GoogleTagManager  } from '@next/third-parties/google';
+import clsx from "clsx";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -74,7 +75,9 @@ export default function RootLayout({ children }) {
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <GoogleTagManager  gtmId="AW-16852708460" />
         <ClientProvider>
-          <div id="root">{children}</div>
+          <div class='main-content'>
+            <div id="root" >{children}</div>
+          </div>
         </ClientProvider>
 
         {/* ✅ Use Next.js <Script> for better performance */}
