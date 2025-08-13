@@ -9,7 +9,7 @@ import { GFS_Didot } from 'next/font/google';
 // Import GFS Didot font
 const gfsDidot = GFS_Didot({
   weight: ['400'], // GFS Didot only has one weight
-  subsets: ['latin'],
+  subsets: ['greek'], // ✅ only 'greek' is supported for this font
 });
 
 export default function Navbar() {
