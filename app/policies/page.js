@@ -13,12 +13,6 @@ export default function Policies() {
 
             <div>
               <h2 className="text-2xl font-bold mb-2">Bee You Nail & Spa – Safety & Service Commitment</h2>
-              <p>
-                At <strong>Bee You Nail & Spa</strong>, your safety and comfort are our top priorities. We consistently update our salon practices to meet and exceed the standards set by the Centers for Disease Control (CDC), the Occupational Safety and Health Administration (OSHA), the Barbicide® protocol, the California Board of Barbering and Cosmetology, as well as the requirements of the State of California and San Diego County.
-              </p>
-              <p>
-                Our work is hands-on — from creating intricate designs to carefully scrubbing heels and polishing nails. We truly value your patience when services take a few extra minutes to ensure every detail is perfect. A little kindness goes a long way and is always appreciated.
-              </p>
             </div>
 
             <div>
@@ -75,6 +69,9 @@ export default function Policies() {
               <p>
                 <strong>Outside products:</strong> We do not accept or use products brought from outside the salon. All services are performed with our professional-grade, tested products for safety and consistency.
               </p>
+              <p>
+                <strong>Payment methods:</strong> A 1$ fee applies to card transactions, including credit/debit cards, Apple Pay, and other digital payment services.
+              </p>
             </div>
 
             {/* <div>
@@ -106,7 +103,7 @@ export default function Policies() {
             <div>
               <h2 className="text-2xl font-bold mb-2">Repairs</h2>
               <p>
-                If you have concerns after a service, contact us within <strong>7 days</strong>. We will review your case and suggest a solution. If repairs are requested outside the repair window, standard service charges may apply. Refunds or discounts are not provided when the guest cannot return within requested timeframes.
+                If you have concerns after a service, contact us within <strong>7 days</strong>. We will review your case and suggest a solution. If repairs are requested outside the repair window, standard service charges may apply. Repair service are not provided when the guest cannot return within requested timeframes. No refund for all services.
               </p>
             </div>
 
