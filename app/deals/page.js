@@ -5,9 +5,9 @@ import clsx from "clsx";
 const DealsPage = () => {
   const deals = [
     {
-      title: 'Happy July 4th',
-      description: 'Get 5% OFF for each U.S. flag color your outfit matches!',
-      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1750615775/July4_oto9tv.png',
+      title: 'Free drink, tea or Vietnamese coffee',
+      description: '',
+      image: 'https://res.cloudinary.com/dk9cq2dqn/image/upload/v1780782297/coffee_hfsflu.jpg',
     },
     // Add more deals as needed
   ];
