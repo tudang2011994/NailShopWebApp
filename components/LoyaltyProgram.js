@@ -10,7 +10,7 @@ export default function RoyaltyProgram() {
               <h2 className="text-3xl font-semibold text-[#black]">Ultimate Relaxation</h2>
               <p className="text-2xl font-semibold text-[#black] mt-4">Spa Pedicures</p>
               <p className="text-lg text-gray-700 mt-4">
-                Seasonal Scents | Organic Options | Callus Removal | Relaxing Massages | Paraffin & More!
+               | Callus Removal | Relaxing Massages | Paraffin & More!
               </p>
                 <a
                 href="https://app.squareup.com/appointments/book/z3cutw95ioa0kc/LJWTNTQ6EXXFA/start"
